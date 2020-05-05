@@ -48,7 +48,7 @@ function anagrams1(stringA, stringB) {
 
 // ARRAY REFERENCE TYPE RULE:
 // ["A"]===["A"]      false: different space in memory
-// "A"  === "A"        true: same string value
+//  "A" === "A"        true: same string value
 
 function anagrams2(stringA, stringB) {
   // Sanitizing
