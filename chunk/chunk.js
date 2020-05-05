@@ -5,12 +5,13 @@
 
 function chunk(array, size) {
   let res = [];
-
+  // loop though each element in input array
   for (let i = 0; i < array.length; i++) {
     const item = array[i];
     const last = res[res.length - 1];
 
     if (!last || last.length === size) {
+      //push subarray containing item in res
       res.push([item]);
     } else {
       last.push(item);

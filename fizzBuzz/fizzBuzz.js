@@ -14,7 +14,6 @@
 //  i % 15 === 0
 //  i % 3  === 0 && i % 5 === 0
 
-//    VERSION 1
 function fizzBuzz1(n) {
   for (let i = 1; i <= n; i++) {
     if (i % 5 === 0) {
@@ -29,7 +28,6 @@ function fizzBuzz1(n) {
   }
 }
 
-//  VERSION 2
 function fizzBuzz2(n) {
   for (let i = 1; i <= n; i++) {
     let str = "";

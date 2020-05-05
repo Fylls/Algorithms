@@ -12,10 +12,10 @@ function isGreaterThanOne(num) {
 // isGreaterThanOne(1)     =>      false
 // isGreaterThanOne(53)    =>      true
 
-//  USING FILTER
+// USING FILTER
 // filter doesn`t modify directly the data, just applies an operation
 
-console.log(x.filter(isGreaterThanOne)); // [ 2, 3, 4, 5 ]
+x.filter(isGreaterThanOne); // [ 2, 3, 4, 5 ]
 
 /////////////////// A L G O R I T H M ///////////////////
 
