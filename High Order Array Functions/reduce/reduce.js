@@ -18,14 +18,12 @@ x.reduce(x, add); // 15
 /////////////////// A L G O R I T H M ///////////////////
 
 // final version
-function myReduce(list, initialValue, reducer) {
-  if (list.length === 0) {
-    return initialValue;
-  } else {
-    const [first, ...rest] = list;
-    const updatedAcc = reducer(initialValue, first);
-    return myReduce(rest, updatedAcc, reducer);
+function reduce(arr, reducer, initialValue) {
+  let accumulator = initialValue === undefined ? 0 : initialValue;
+  for (let i = 0; i < arr.length; i++) {
+    accumulator = reducer(accumulator, arr[i], i, arr);
   }
+  return accumulator;
 }
 
 //  for strings
@@ -51,5 +49,4 @@ function reduceNumber(input, fn) {
 }
 
 //  calling function
-console.log(reduceString(x, add));
-console.log(reduceNumber(x, add));
+reduce(x, add);
