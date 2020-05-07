@@ -1,7 +1,5 @@
-// f() accepts a positive number N and console-logs a pyramid shape
-// with N levels using the # character.
-
-/* 
+/*  f() accepts a positive number N and console-logs a pyramid shape
+    with N levels using the # character.
 
 pyramid(1)         
      '#'
