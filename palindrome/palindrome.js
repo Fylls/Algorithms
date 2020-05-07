@@ -14,7 +14,7 @@ function palindrome(str) {
 function palindrome2(str) {
   str = str.toLowerCase();
   // takes str, puts every character inside and array, swaps every index of the array
-  // and joins every item of the reversed array
+  // and joins every item of the reversed array back together into a new string
   const reversed = str.split("").reverse().join("");
 
   if (str === reversed) {
