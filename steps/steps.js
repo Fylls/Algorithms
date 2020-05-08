@@ -33,8 +33,7 @@ function steps(n) {
   }
 }
 
-//   USING STRING.REPEAT()
-
+//  using str.repeat()
 function steps2(n) {
   for (let i = 1; i <= n; i++) {
     let step = "";
