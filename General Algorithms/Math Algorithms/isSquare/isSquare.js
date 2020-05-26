@@ -43,3 +43,8 @@ const isSquare = function (n) {
   } // else
   return false;
 };
+
+//v3
+const isSquare = function (n) {
+  return Math.sqrt(sq) % 1 ? false : true;
+};
