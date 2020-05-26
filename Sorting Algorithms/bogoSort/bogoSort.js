@@ -4,6 +4,10 @@
 // The function successively generates permutations of its input until it finds one that is sorted.
 // It is not useful for sorting, but may be used for educational purposes, to contrast it with more efficient algorithms.
 
+// worst case performance of O(∞)
+// best case performance of O(n)
+// average performance of O(n·n!)
+
 function shuffle(arr) {
   var shuffled = [];
   var rand;
