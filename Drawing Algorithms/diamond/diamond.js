@@ -25,16 +25,58 @@ A size 5 diamond:
 ...that is: " *\n ***\n*****\n ***\n *\n"
 */
 
-function isOdd(n) {
-  n % 2 == 1 ? true : false;
+///////////////////////////////////////////////////////////////////////////////////////////
+
+// best implementation
+function diamond(n) {
+  if (n % 2 == 0 || n < 1) return null;
+  var x = 0,
+    add,
+    diam = line(x, n);
+  while ((x += 2) < n) {
+    add = line(x / 2, n - x);
+    diam = add + diam + add;
+  }
+  return diam;
 }
 
+function repeat(str, x) {
+  return Array(x + 1).join(str);
+}
+
+function line(spaces, stars) {
+  return repeat(" ", spaces) + repeat("*", stars) + "\n";
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////
+
+// clean
 function diamond(n) {
-  if (n < 3 || isOdd(n) === false) {
+  if (n <= 0 || n % 2 === 0) return null;
+  str = "";
+  for (let i = 0; i < n; i++) {
+    let len = Math.abs((n - 2 * i - 1) / 2);
+    str += " ".repeat(len);
+    str += "*".repeat(n - 2 * len);
+    str += "\n";
+  }
+  return str;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////
+
+// using spaces
+
+function diamond(n) {
+  if (n === 1) {
+    console.log("*");
+  }
+
+  if (n < 3 || n % 2 == 0) {
     return null;
   }
 
-  // n is odd
+  // n is always odd
   for (let i = 1; i <= n; i += 2) {
     let step = "";
     step += " ".repeat((n - i) / 2);
@@ -42,6 +84,42 @@ function diamond(n) {
     step += " ".repeat((n - i) / 2);
     console.log(step);
   }
+
+  // n is always odd
+  for (let j = 1; j < n / 2; j++) {
+    let step2 = "";
+    step2 += " ".repeat(j);
+    step2 += "*".repeat(n - 2 * j);
+    step2 += " ".repeat(j);
+    console.log(step2);
+  }
 }
 
-diamond(9);
+///////////////////////////////////////////////////////////////////////////////////////////
+
+//using strings and new line (\n)
+
+function diamond(n) {
+  if (n === 1) {
+    console.log("*");
+  }
+
+  if (n < 3 || n % 2 == 0) {
+    return null;
+  }
+
+  let string = "";
+
+  for (let i = 1; i <= n; i += 2) {
+    string += " ".repeat((n - i) / 2);
+    string += "*".repeat(i);
+    string += "\n";
+  }
+
+  for (let j = 1; j < n / 2; j++) {
+    string += " ".repeat(j);
+    string += "*".repeat(n - 2 * j);
+    string += "\n";
+  }
+  console.log(string);
+}
