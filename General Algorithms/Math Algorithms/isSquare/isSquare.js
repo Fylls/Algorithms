@@ -44,7 +44,7 @@ const isSquare = function (n) {
   return false;
 };
 
-//v3
+// v3
 const isSquare = function (n) {
   return Math.sqrt(sq) % 1 ? false : true;
 };
