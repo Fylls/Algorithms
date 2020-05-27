@@ -25,16 +25,23 @@ A size 5 diamond:
 ...that is: " *\n ***\n*****\n ***\n *\n"
 */
 
+function isOdd(n) {
+  n % 2 == 1 ? true : false;
+}
+
 function diamond(n) {
-  if (n < 3) {
+  if (n < 3 || isOdd(n) === false) {
     return null;
   }
 
-  for (let i = 1; i <= n; i++) {
+  // n is odd
+  for (let i = 1; i <= n; i += 2) {
     let step = "";
-    step += " ".repeat(n - i);
-    step += "*".repeat(n - );
-    step += " ".repeat(n - i);
+    step += " ".repeat((n - i) / 2);
+    step += "*".repeat(i);
+    step += " ".repeat((n - i) / 2);
     console.log(step);
   }
 }
+
+diamond(9);
