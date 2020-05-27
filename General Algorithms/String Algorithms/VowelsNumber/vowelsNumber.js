@@ -6,7 +6,7 @@
 //   vowels('aEiOu') --> 5
 //   vowels('I am a world-class developer using iterations') --> 16
 
-function vowels(str) {
+function vowelsNumber(str) {
   // using reg-ex
   str = str.toLowerCase().replace(/[\W_]+/g, "");
 
@@ -28,7 +28,7 @@ function vowels(str) {
 }
 
 // worse readability
-function vowels1(str) {
+function vowelsNumber(str) {
   str = str.toLowerCase().replace(/[\W_]+/g, "");
 
   const vowelArr = "aeiou".split("");
