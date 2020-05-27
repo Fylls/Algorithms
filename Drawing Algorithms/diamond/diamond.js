@@ -14,7 +14,6 @@ A size 3 diamond:
 
 A size 5 diamond:
 
-  *
         *
        ***
       *****
