@@ -45,7 +45,7 @@ function towerBuilder(n) {
   });
 }
 
-// one liner
+// oneliner
 const towerBuilder = (n) =>
   [...Array(n)].map(
     (_, i) =>
