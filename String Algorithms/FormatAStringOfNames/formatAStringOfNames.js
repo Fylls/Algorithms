@@ -21,7 +21,7 @@ list([])
 
 ///////////////////////////////////////////////////////////////////////////
 
-// => names.map((x) => x.name)
+//  I M P O R T A N T   =>  names.map((x) => x.name)
 
 // using map
 function list(names) {
@@ -32,7 +32,6 @@ function list(names) {
 
 // oneliner (with regex)
 // var list = (names) =>  names.map(x => x.name).join(', ').replace(/(.*),(.*)$/, "$1 &$2")
-
 var list = (names) =>
   names
     .map((x) => x.name)
