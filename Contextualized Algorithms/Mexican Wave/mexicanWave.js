@@ -72,8 +72,3 @@ const wave = (s) =>
     /\s/.test(s[i]) ? null : s.slice(0, i) + s[i].toUpperCase() + s.slice(i + 1)
   ).filter(Boolean);
 
-//
-const wave = (str) =>
-  [...str]
-    .map((s, i) => str.slice(0, i) + s.toUpperCase() + str.slice(i + 1))
-    .filter((x) => x != str);
