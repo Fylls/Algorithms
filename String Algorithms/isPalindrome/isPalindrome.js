@@ -6,12 +6,12 @@
 // palindrome("love") === false
 
 // fast implementation
-function palindrome(str) {
+function isPalindrome(str) {
   str = str.toLowerCase();
   return str === str.split("").reverse().join("");
 }
 
-function palindrome2(str) {
+function isPalindrome(str) {
   str = str.toLowerCase();
   // takes str, puts every character inside and array, swaps every index of the array
   // and joins every item of the reversed array back together into a new string

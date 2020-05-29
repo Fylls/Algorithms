@@ -19,5 +19,6 @@ function divide(a, b) {
     console.log("undetermined");
   }
 
+  //or this without any IFs
   return a / b;
 }
