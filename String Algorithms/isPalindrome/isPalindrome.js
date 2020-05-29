@@ -11,6 +11,7 @@ function isPalindrome(str) {
   return str === str.split("").reverse().join("");
 }
 
+// general
 function isPalindrome(str) {
   str = str.toLowerCase();
   // takes str, puts every character inside and array, swaps every index of the array

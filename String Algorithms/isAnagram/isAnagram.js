@@ -11,7 +11,7 @@
 //   anagrams('lol', 'lolc') --> False
 
 //  VERSION 1
-function anagrams1(stringA, stringB) {
+function isAnagram(stringA, stringB) {
   //Sanitize input string
   stringA = stringA.toLowerCase().replace(/[\W_]+/g, "");
   stringB = stringB.toLowerCase().replace(/[\W_]+/g, "");
@@ -50,7 +50,7 @@ function anagrams1(stringA, stringB) {
 // ["A"]===["A"]      false: different space in memory
 //  "A" === "A"        true: same string value
 
-function anagrams2(stringA, stringB) {
+function isAnagram(stringA, stringB) {
   // Sanitizing
   stringA = stringA.toLowerCase().replace(/[\W_]+/g, "");
   stringB = stringB.toLowerCase().replace(/[\W_]+/g, "");
