@@ -24,8 +24,10 @@ function rot13(str) {
     if (idxLower === -1 && idxUpper === -1) {
       res += char;
       continue;
+      
     } else if (idxLower === -1) {
       res += alphabetArrayUpper[encodedIdx(idxUpper)];
+      
     } else if (idxUpper === -1) {
       res += alphabetArrayLower[encodedIdx(idxLower)];
     }
