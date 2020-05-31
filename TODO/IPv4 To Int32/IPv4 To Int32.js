@@ -1,3 +1,5 @@
+//                                              T A S K
+
 /*
 
 Take the following IPv4 address: 128.32.10.1 This address has 4 octets where each octet is a single byte (or 8 bits).
@@ -16,46 +18,49 @@ ipToInt32("128.32.10.1") => 2149583361
 
 */
 
+//                                       M A T H   B E H I N D
+
+// To convert an IP address to integer notation, each section of the IP address (separated by ".")
+// is multiplied by 256x. In this case, x represents the position of the section from right to left starting with 0.
+// Here is an example using this formula:
+
+// 192.168.1.1 = (192 * 2563) + (168 * 2562) + (1 * 2561) + (1 * 2560)
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// classic
 function ipToInt32(ip) {
-  const ipArray = ip.split(".");
-  let binaryNum = 0;
-
-  if (ipArray[0] === "128") {
-    binaryNum += 10000000;
-  }
-
-  if (ipArray[1] === "32") {
-    binaryNum += 100000;
-  }
-
-  if (ipArray[2] === "10") {
-    binaryNum += 1010;
-  }
-
-  if (ipArray[3] === "1") {
-    binaryNum += 1;
-  }
-
-  const lol = binaryNum.toString();
+  const ipArray = ip.split(".").reverse();
+  ipArray.forEach((el) => parseInt(el));
 
   let result = 0;
 
-  for (let i = 0; i < lol.length; i++) {
-    result += lol.charAt(i) * Math.pow(2, i);
+  for (let i = 0; i < ipArray.length; i++) {
+    result += ipArray[i] * Math.pow(256, i);
   }
 
   return result;
 }
 
-// 10101011
-
+// using reduce
 function ipToInt32(ip) {
-  let number = "10101011";
-  let result = 0;
+  return ip.split(".").reduce((s, v) => 256 * s + Number(v), 0);
+}
 
-  for (let i = 0; i < lol.length; i++) {
-    result += lol.charAt(i) * Math.pow(2, i);
-  }
+// oneliner
+let ipToInt32 = (ip) => ip.split(".").reduce((a, b) => (a << 8) | b) >>> 0;
 
-  return result;
+// oneliner 2
+const ipToInt32 = (ip) => ip.split`.`.reduce((r, e) => r * 256 + +e);
+
+// slow
+function ipToInt32(ip) {
+  let arr = ip.split(".").map((n) => Number(n));
+
+  arr[0] *= Math.pow(256, 3);
+  arr[1] *= Math.pow(256, 2);
+  arr[2] *= 256;
+  arr[3];
+
+  return arr[0] + arr[1] + arr[2] + arr[3];
 }
