@@ -70,10 +70,21 @@ function findEndCoord(array) {
 
 // this f() returns the the element contained in a specific coordinate
 function findValueAtCoord(array, coord) {
-  const x = coord[0];
-  const y = coord[1];
+  let x = coord[0];
+  let y = coord[1];
 
   return array[y][x];
+}
+
+function arraysEqual(a, b) {
+  if (a === b) return true;
+  if (a == null || b == null) return false;
+  if (a.length != b.length) return false;
+
+  for (var i = 0; i < a.length; ++i) {
+    if (a[i] !== b[i]) return false;
+  }
+  return true;
 }
 
 // this f() reads one direction at a time and changes the coordinates according to the specified direction
@@ -97,40 +108,30 @@ function nextCoord(dir, currentCoord) {
 
 // this f() use all other functions to solve the maze!
 function mazeRunner(array, directions) {
-  ///
-
   const startCoord = findStartCoord(array);
-  console.log(`start coordinate x = ${startCoord[0]}, y = ${startCoord[1]}`);
-
   const endCoord = findEndCoord(array);
-  console.log(`end coordinates x = ${endCoord[0]}, y = ${endCoord[1]}`);
 
   let currentCoord = startCoord;
-  console.log(
-    `current coordinates x = ${currentCoord[0]}, y = ${currentCoord[1]}`
-  );
 
-  directions.forEach((dir) => {
+  for (let i = 0; i < directions.length; i++) {
+    let dir = directions[i];
     currentCoord = nextCoord(dir, currentCoord);
 
-    console.log("------------------------");
-    console.log(dir);
-    console.log(
-      `current coordinates x = ${currentCoord[0]}, y = ${currentCoord[1]}`
-    );
-
-    if (findValueAtCoord(array, currentCoord) === 3) {
+    if (arraysEqual(currentCoord, endCoord)) {
       return "Finish";
     }
-  });
-
-  if (findValueAtCoord(array, currentCoord) === 0) {
-    return "lost";
-  } else if (findValueAtCoord(array, currentCoord) === 1) {
-    return "Dead";
-  } else {
-    ("damn it, this maze thing is getting out of hands!");
   }
+
+  if (
+    currentCoord[0] >= array.length ||
+    currentCoord[1] >= array.length ||
+    currentCoord[0] <= 0 ||
+    currentCoord[1] <= 0
+  )
+    return "Dead";
+
+  if (findValueAtCoord(array, currentCoord) === 1) return "Dead";
+  else if (findValueAtCoord(array, currentCoord) === 0) return "Lost";
 }
 
 var maze = [
@@ -144,4 +145,6 @@ var maze = [
   [1, 2, 1, 0, 1, 0, 1],
 ];
 
-mazeRunner(maze, ["N", "N", "N", "N", "N", "E", "E", "E", "E", "E"]);
+mazeRunner(maze, ["N", "E", "E", "E", "E"]);
+
+//not working
