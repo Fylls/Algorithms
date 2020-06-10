@@ -27,6 +27,12 @@ function vowelsNumber(str) {
   return counter;
 }
 
+// fast regex
+// const getCount = str => str.replace(/[^aeiou]/g, '').length;
+function getCount(str) {
+  return (str.match(/[aeiou]/gi) || []).length;
+}
+
 // worse readability
 function vowelsNumber(str) {
   str = str.toLowerCase().replace(/[\W_]+/g, "");
