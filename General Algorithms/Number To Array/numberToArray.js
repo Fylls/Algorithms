@@ -1,5 +1,10 @@
 // FROM NUMBER TO ARRAY
 
+//                           B E S T
+const numToSeparate = 12345;
+
+const arrayOfDigits = numToSeparate.toString().split("");
+
 //                           N  E  W
 
 const numToSeparate = 12345;
