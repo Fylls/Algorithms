@@ -15,7 +15,7 @@
 // so there are 11 digits `1` for the squares of numbers between 0 and 25.
 // Note that 121 has twice the digit 1.
 
-// still have to finish
+// not optimized
 function nbDig(n, d) {
   let digit = d.toString();
   let k = [];
@@ -28,11 +28,59 @@ function nbDig(n, d) {
   for (let i = 0; i <= n; i++) {
     k.push((i * i).toString());
   }
-  console.log(k);
-  k = k.filter((item) => including(item, digit));
-  console.log(k);
-  return k.length;
+
+  const kWithDigits = k.filter((item) => including(item, digit));
+
+  kWithDigits.forEach((el) => {
+    const array = el.split("");
+
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] === digit) {
+        sum++;
+      }
+    }
+  });
+
+  return sum;
 }
 
-/// number of times d contained in code
-console.log(nbDig(10, 6));
+// best
+function nbDig(n, d) {
+  var res = 0;
+
+  for (var g = 0; g <= n; g++) {
+    var square = (g * g + "").split("");
+    square.forEach((s) => (s == d ? res++ : null));
+  }
+
+  return res;
+}
+
+// pow
+function nbDig(n, d) {
+  var o = "";
+  for (var i = 0; i <= n; i++) {
+    o += Math.pow(i, 2);
+  }
+  return o.split(d).length - 1;
+}
+
+// spread
+function nbDig(n, d) {
+  return [...Array(n + 1).keys()]
+    .map((i) => {
+      return i * i;
+    })
+    .join("")
+    .split("")
+    .filter((i) => {
+      return i == d;
+    }).length;
+}
+
+// regex
+// nbDig = (n, d) => Array.from(Array(n + 1), (e, i) => i * i).join('').match(new RegExp(d, 'g')).length;
+nbDig = (n, d) =>
+  Array.from(Array(n + 1), (e, i) => i * i)
+    .join("")
+    .match(new RegExp(d, "g")).length;
