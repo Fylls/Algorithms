@@ -27,3 +27,5 @@ numbers.odd();     // must return [1, 3, 5]
 
 */
 // ??
+
+Array.prototype.toJadenCase = function () {};
