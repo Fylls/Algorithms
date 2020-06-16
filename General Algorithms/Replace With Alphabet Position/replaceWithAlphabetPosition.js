@@ -52,6 +52,7 @@ function alphabetPosition(text) {
   return res.join(" ");
 }
 
+// match
 function alphabetPosition(text) {
   return text
     .toUpperCase()
@@ -60,6 +61,7 @@ function alphabetPosition(text) {
     .join(" ");
 }
 
+// replace
 let alphabetPosition = (text) =>
   text
     .toUpperCase()
