@@ -28,4 +28,79 @@ numbers.odd();     // must return [1, 3, 5]
 */
 // ??
 
-Array.prototype.toJadenCase = function () {};
+//                                                  S  Q  U  A  R  E
+Array.prototype.square = function () {
+  return this.map((el) => el ** 2);
+};
+
+//                                                     C   U   B   E
+Array.prototype.cube = function () {
+  return this.map((el) => el ** 3);
+};
+
+//                                                      S    U    M
+Array.prototype.sum = function () {
+  return this.reduce((a, b) => a + b, 0);
+};
+
+//                                               A  V  E  R  A  G  E
+Array.prototype.average = function () {
+  const numOfTerms = this.length;
+  const sum = this.reduce((a, b) => a + b, 0);
+  return sum / numOfTerms;
+};
+
+//                                                    E   V   E   N
+Array.prototype.even = function () {
+  return this.filter((el) => el % 2 === 0);
+};
+
+//                                                     O    D    D
+Array.prototype.odd = function () {
+  return this.filter((el) => el % 2 === 1);
+};
+
+// Array.prototype.square  = function () { return this.map(function(n) { return n*n; }); }
+// Array.prototype.cube    = function () { return this.map(function(n) { return n*n*n; }); }
+// Array.prototype.average = function () { return this.sum() / this.length; }
+// Array.prototype.sum     = function () { return this.reduce(function(a, b) { return a + b; }, 0); }
+// Array.prototype.even    = function () { return this.filter(function(item) { return 0 == item % 2; }); }
+// Array.prototype.odd     = function () { return this.filter(function(item) { return 0 != item % 2; }); }
+
+Array.prototype.square = Square;
+Array.prototype.cube = Cube;
+Array.prototype.average = Average;
+Array.prototype.sum = Sum;
+Array.prototype.even = Even;
+Array.prototype.odd = Odd;
+
+function Square() {
+  return this.map(function (e) {
+    return e * e;
+  });
+}
+function Cube() {
+  return this.map(function (e) {
+    return e * e * e;
+  });
+}
+function Average() {
+  return this.sum() / this.length;
+}
+function Sum() {
+  return this == ""
+    ? 0
+    : this.reduce(function (a, b) {
+        return a + b;
+      });
+}
+function Even() {
+  return this.filter(function (e) {
+    return e % 2 == 0;
+  });
+}
+function Odd() {
+  return this.filter(function (e) {
+    return e % 2 != 0;
+  });
+}
