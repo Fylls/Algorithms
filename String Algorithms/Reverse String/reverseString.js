@@ -4,16 +4,16 @@
 //   reverse('Hello!') === '!olleH'
 
 // one liner
-function reverse(str) {
-  return str.split("").reverse().join("");
-}
+const solution = (str) => str.split("").reverse().join("");
 
 // explanation
 function reverse1(str) {
   // turn string to array, each char of the string will be part of the array as an individual element
   const arr = str.split("");
+
   // swap all the indexes of the array
   arr.reverse();
+
   // join every element back together
   const res = arr.join("");
   return res;
