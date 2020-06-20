@@ -20,17 +20,4 @@ const maxSequence = function (arr) {
   return max;
 };
 
-const maxSequence = function (arr) {
-  arr.sort((a, b) => b - a);
-  console.log(arr);
-
-  let max = 0;
-
-  for (let i = 0; i < arr.lenght; i++) {
-    if (max < max + array[i]) {
-      console.log(max);
-      max += arr[i];
-    }
-  }
-  return max;
-};
+-
