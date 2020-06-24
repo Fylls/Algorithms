@@ -8,7 +8,7 @@
 // randoArray2 = "p o l i k u j m y h n t g b r f v e d c w s x q a z".split(' ')
 // aBeforeM(randoArray2) // => false
 
-// classic double for
+// double for
 function isABeforeM(arr) {
   for (let i = 0; i < arr.length; i++) {
     for (let j = 0; j < arr.length; j++) {
@@ -57,3 +57,6 @@ function isABeforeM(arr) {
 
 // regex oneliner
 isABeforeM = (t) => /a.*m/.test(t)
+
+// onliner
+const isABeforeM = (arr) => (arr.indexOf("a") > arr.indexOf("m") ? false : true)
