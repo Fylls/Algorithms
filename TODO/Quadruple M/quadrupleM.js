@@ -31,26 +31,84 @@
 // list_mix([-12, 2, 1.2, 20]) == [20, -12, 1.6, 2.8]
 
 function listMix(arr) {
-  const max = Math.max(...arr)
+  let max = Math.max(...arr)
 
-  const min = Math.min(...arr)
+  let min = Math.min(...arr)
 
-  const mean = arr.reduce((a, b) => a + b) / arr.length
+  let mean = arr.reduce((a, b) => a + b) / arr.length
 
   let med
 
   if (arr.length === 1) {
     med = arr[0]
   } else if (arr.length % 2 === 1) {
-    med = arr[arr.length / 2]
+    const sort = arr.sort((a, b) => a - b)
+    med = sort[Math.floor(arr.length / 2)]
   } else {
     const sort = arr.sort((a, b) => a - b)
+
     const floor = sort[Math.floor(arr.length / 2) - 1]
     const ceil = sort[Math.floor(arr.length / 2)]
 
     med = (floor + ceil) / 2
-    console.log(med)
   }
 
+  max = +max.toFixed(2)
+  min = +min.toFixed(2)
+  med = +med.toFixed(2)
+  mean = +mean.toFixed(2)
+
   return [max, min, med, mean]
+}
+
+// concise
+function listMix(arr) {
+  arr.sort((a, b) => a - b)
+
+  var max = Math.max(...arr)
+
+  var min = Math.min(...arr)
+
+  var med =
+    arr.length % 2 === 0
+      ? (arr[arr.length / 2 - 1] + arr[arr.length / 2]) / 2
+      : arr[parseInt(arr.length / 2)]
+
+  var mean = arr.reduce((a, b) => a + b, 0) / arr.length
+
+  return [max, min, med, mean].map(v => +v.toFixed(2))
+}
+
+// using for
+function listMix(arr) {
+  var max = arr[0]
+  var min = arr[0]
+  var sum = 0
+
+  /* max min avg*/
+  for (var i = 0; i < arr.length; i++) {
+    sum += arr[i]
+
+    if (arr[i] > max) {
+      max = arr[i]
+    }
+    if (arr[i] < min) {
+      min = arr[i]
+    }
+  }
+
+  /* Median function */
+  const median = arr => {
+    const mid = Math.floor(arr.length / 2),
+      nums = [...arr].sort((a, b) => a - b)
+    return arr.length % 2 !== 0 ? nums[mid] : (nums[mid - 1] + nums[mid]) / 2
+  }
+
+  var med = median(arr)
+
+  sum = sum / arr.length
+  sum = sum.toFixed(2)
+  med = med.toFixed(2)
+
+  return [max, min, eval(med), eval(sum)]
 }
