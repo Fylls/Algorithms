@@ -7,6 +7,7 @@
 // so create function list_mix() to do it for you!
 
 // list_mix() will take an input in the form of a list of numbers, and output the
+// max,
 // min,
 // med,
 // mean
