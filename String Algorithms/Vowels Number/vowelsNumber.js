@@ -7,45 +7,49 @@
 //   vowels('I am a world-class developer using iterations') --> 16
 
 function vowelsNumber(str) {
-  // using reg-ex
-  str = str.toLowerCase().replace(/[\W_]+/g, "");
+  //sanitizing
+  str = str.toLowerCase().replace(/[\W_]+/g, "")
 
-  const vowels = "aeiou".split("");
-  let = counter = 0;
+  const vowels = "aeiou".split("")
+  let = counter = 0
 
   for (let i = 0; i < str.length; i++) {
-    const char = str[i];
+    const char = str[i]
 
     for (let j = 0; j < vowels.length; j++) {
-      const vowel = vowels[j];
+      const vowel = vowels[j]
 
       if (char === vowel) {
-        counter++;
+        counter++
       }
     }
   }
-  return counter;
+  return counter
 }
 
 // fast regex
-// const getCount = str => str.replace(/[^aeiou]/g, '').length;
-function getCount(str) {
-  return (str.match(/[aeiou]/gi) || []).length;
-}
+const countVowels = str => (str.match(/[aeiou]/gi) || []).length
 
 // worse readability
 function vowelsNumber(str) {
-  str = str.toLowerCase().replace(/[\W_]+/g, "");
+  str = str.toLowerCase().replace(/[\W_]+/g, "")
 
-  const vowelArr = "aeiou".split("");
-  let = vowelCounter = 0;
+  const vowelArr = "aeiou".split("")
+  let = vowelCounter = 0
 
   for (let i = 0; i < str.length; i++) {
     for (let j = 0; j < vowelArr.length; j++) {
       if (str[i] === vowelArr[j]) {
-        vowelCounter++;
+        vowelCounter++
       }
     }
   }
-  return vowelCounter;
+  return vowelCounter
+}
+
+const countVowels = str => {
+  str = str.toLowerCase().replace(/[\W_]+/g, "") //sanitizing input
+  let counts = 0
+  for (vowel of vowels) if (vowels.includes(str[i])) counts++
+  return counts
 }
